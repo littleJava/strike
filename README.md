@@ -1,4 +1,4 @@
 strike
 ======
 
-benchmark test tool
+benchmark stress test tool

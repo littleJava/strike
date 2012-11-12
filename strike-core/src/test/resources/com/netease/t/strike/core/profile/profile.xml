@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+    <name>test</name>
+    <!-- hit stress -->
+    <type>stress</type>
+    <loop>10</loop>
+    <dev>true</dev>
+    <survival-date>
+        <from>2012-02-23 23:93</from>
+        <to>2012-12-23 23:93</to>
+    </survival-date>
+    <jvm>
+        <java>java</java>
+        <args>-Xms128m -Xmx256m</args>
+    </jvm>
+    <worker>
+        <impl>com.netease.t.strike.app.sample.HelloWorkerTask</impl>
+        <data-provider>com.netease.t.strike.app.sample.SharedValueProvider</data-provider>
+        <number init="10" incr="7" max="20"></number>
+        <timeout>3000</timeout><!-- millisecond -->
+    </worker>
+    <reportors>
+        <!-- reportor name="xml" detailed="true"></reportor -->
+        <reportor name="stdout" detail-ratio="80%"></reportor>
+        <stress-sample-interval>3000</stress-sample-interval><!-- millisecond -->
+        <stress-sample-count>10</stress-sample-count><!-- default is number-init -->
+    </reportors>
+    <stop>
+        <success-ratio-less>11%</success-ratio-less>
+        <duration>1000</duration><!-- millisecond -->
+    </stop>
+</profile>
